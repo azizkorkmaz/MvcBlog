@@ -132,10 +132,10 @@
                     </ul>
                 </li>
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> John Smith <b class="caret"></b></a>
+                    <a href="/Uye/Index/" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> @Session["kullaniciadi"].ToString()  <b class="caret"></b></a>
                     <ul class="dropdown-menu">
                         <li>
-                            <a href="#"><i class="fa fa-fw fa-user"></i> Profile</a>
+                            <a href="/Uye/Index/@Session["uyeid"]"><i class="fa fa-fw fa-user"></i> Profil</a>
                         </li>
                         <li>
                             <a href="#"><i class="fa fa-fw fa-envelope"></i> Inbox</a>
@@ -145,7 +145,7 @@
                         </li>
                         <li class="divider"></li>
                         <li>
-                            <a href="#"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
+                            <a href="/Uye/Logout/"><i class="fa fa-fw fa-power-off"></i> Çıkış</a>
                         </li>
                     </ul>
                 </li>
