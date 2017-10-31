@@ -1,7 +1,37 @@
-﻿
+﻿@model IEnumerable<MvcBlog.Models.Makale> 
 @{
     ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<div class="col-md-8">
+    @foreach (var item in Model)
+    {
+        <article class="col-sm-12">
+            <h2>
+                <a href="/Home/MakaleDetay/@item.MakaleId">@item.Baslik</a>
+            </h2>
+            <p class="lead">
+                Yazar <a href="/Uye/Index/@item.Uye.UyeId">@item.Uye.KullaniciAdi</a>
+            </p>
+            <p>
+                <span class="glyphicon glyphicon-time"></span> @item.Tarih
+            </p>
+            <hr />
+            <img class="img-responsive" src="@item.Foto"  alt="@item.Baslik" />
+            <hr />
+            @if (item.Icerik.Length > 150)
+            {
+                <p> @Html.Raw(item.Icerik.Substring(0,150))...</p>
+            }
+            else
+            {
+                <p>@Html.Raw(item.Icerik)...</p>
+            }
+
+            <a href="/Home/MakaleDetay/@item.MakaleId" class="btn btn-primary">Devamı Oku<span class="glyphicon glyphicon-chevron-right"></span></a>
+            <hr />
+        </article>
+    }
+</div>
 

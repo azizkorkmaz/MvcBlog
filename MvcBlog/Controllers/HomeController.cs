@@ -13,7 +13,9 @@ namespace MvcBlog.Controllers
         MvcBlogDB db = new MvcBlogDB();
         public ActionResult Index()
         {
-            return View();
+            var makale = db.Makales.OrderByDescending(m => m.MakaleId).ToList();
+
+            return View(makale);
         }
         public ActionResult Hakkimizda()
         {
