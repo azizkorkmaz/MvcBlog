@@ -45,6 +45,55 @@
                         <a href="/Home/Iletisim/">İletişim</a>
                     </li>
                 </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    @if (Session["uyeid"] != null)
+                    {
+                        @*<li>
+                                <a href="/Uye/Index/">@Session["kullaniciadi"].ToString()</a>
+                            </li>
+
+                            <li>
+                                <a href="/Uye/Logout/">Çıkış</a>
+                            </li>*@
+
+                        <li class="dropdown">
+                            <a href="/Uye/Index/" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i>@Session["kullaniciadi"].ToString() <b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+
+
+                                <li>
+                                    <a href="/Uye/Index/@Session["uyeid"]">Profil</a>
+                                </li>
+                                
+                                <li>
+                                    <hr />
+                                    <a href="/Uye/Logout/">Çıkış</a>
+                                </li>
+                                @if (Convert.ToInt32(Session["yetkiid"]) == 1)
+                                {
+                                    <li>
+                                        <a href="/Admin/Index/" target="_blank">Admin Panel</a>
+                                        <hr />
+                                    </li>
+                                }
+
+
+
+                            </ul>
+                        </li>
+
+
+                    }
+                    else
+                    {
+                        <li>
+                            <a href="/Uye/Login/">Giriş</a>
+                        </li>
+                    }
+
+
+                </ul>
+
             </div>
             <!-- /.navbar-collapse -->
         </div>
@@ -63,10 +112,10 @@
 
 
             <!-- Blog Sidebar Widgets Column -->
-            <div class="col-md-4">
+            <div class="col-md-4  ">
 
                 <!-- Blog Search Well -->
-                <div class="well">
+                <div class="well ">
                     <h4>Blog Search</h4>
                     <div class="input-group">
                         <input type="text" class="form-control">
