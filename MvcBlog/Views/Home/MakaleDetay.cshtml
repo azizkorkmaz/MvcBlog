@@ -1,0 +1,121 @@
+﻿@model MvcBlog.Models.Makale
+
+@{
+    ViewBag.Title = "MakaleDetay";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    .tag {
+        background-color: aqua;
+    }
+</style>
+<div class="col-md-8">
+    <h1 class="page-header">
+
+        <small>@Model.Baslik</small>
+    </h1>
+
+    <p class="lead">
+        <img class="img-circle" width="90" src="@Model.Uye.Foto" alt="@Model.Uye.KullaniciAdi" />
+        <a href="/Uye/Index/@Model.UyeID">@Model.Uye.KullaniciAdi</a>
+    </p>
+    <p><span class="glyphicon glyphicon-time"></span>@string.Format("{0:MMM yyyy}", Model.Tarih) <span class="glyphicon glyphicon-edit"></span> @Model.Kategori.KategoriAdi (@Model.Kategori.Makales.Count)<span class="glyphicon glyphicon-comment"></span> (@Model.Yorums.Count) <span class="glyphicon glyphicon-bookmark"></span> (@Model.Okunma.Value) Defa Okundu</p>
+    <hr>
+    <img class="img-responsive" src="@Model.Foto" alt="@Model.Baslik">
+    <hr>
+    <p class="lead">
+        @Html.Raw(Model.Icerik)
+    </p>
+    <div class="well">
+        @foreach (var item in Model.Etikets)
+        {
+            <span class="tag">@item.Adi</span>
+        }
+    </div>
+    <hr>
+
+    @if (Session["uyeid"] != null)
+    {
+        <div class="well">
+            <h4>Yorum</h4>
+            <form role="form">
+                <div class="form-group">
+                    <textarea id="yorum" typeof="text" class="form-control" rows="3"></textarea>
+                </div>
+                <button type="submit" id="gonder" class="btn btn-primary">Yorum Yap</button>
+            </form>
+        </div>
+    }
+    else
+    {
+        <h2>Makaleye yorum yapmak için kullanıcı girişi yapmalısınız...</h2>
+        <p><a href="/Uye/Login/">Giriş Yap</a></p>
+    }
+
+    <div class="media">
+        @foreach (var item in Model.Yorums.ToList())
+        {
+            <div class="well">
+                <a class="pull-left" href="">
+                    <img class="img-circle" width="50" src="@item.Uye.Foto" alt="@item.Uye.AdSoyad" />
+                </a>
+                <div class="media-body">
+                    <h4 class="media-heading">
+                        @item.Uye.KullaniciAdi
+                        <small>@item.Tarih</small>
+                    </h4>
+                    @item.Icerik - @if (Convert.ToInt32(Session["uyeid"]) == item.UyeID)
+                    {
+                        <a class="btn btn-danger" href="/Home/YorumSil/@item.YorumId">Sil</a>
+                    }
+                </div>
+            </div>
+        }
+    </div>
+
+</div>
+<script src="~/Content/js/jquery.js"></script>
+<!-- Bootstrap Core JavaScript -->
+<script src="~/Content/js/bootstrap.min.js"></script>
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        $("#gonder").click(function () {
+
+            var yorumunuz = $("#yorum").val();
+            $.ajax({
+                url: '/Home/YorumYap/',
+                data: {yorum:yorumunuz,makaleid:@Model.MakaleId},
+                type:'POST',
+                dataType:'json',
+                success:function (data) {
+                    alert("Başarılı !!"+yorumunuz);
+                }
+            });
+        });
+    })
+</script>
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+
+        $.ajax({
+            url: '/Home/OkumaArttir/',
+            data: {makaleid:@Model.MakaleId},
+            type:'POST',
+
+        });
+    })
+
+</script>
+
+
+
+
+
+
+
+
+

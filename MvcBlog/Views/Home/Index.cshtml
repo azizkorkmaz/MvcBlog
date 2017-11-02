@@ -12,24 +12,26 @@
                 <a href="/Home/MakaleDetay/@item.MakaleId">@item.Baslik</a>
             </h2>
             <p class="lead">
-                Yazar <a href="/Uye/Index/@item.Uye.UyeId">@item.Uye.KullaniciAdi</a>
+                <span> <img class="img-responsive" src="@item.Uye.Foto" alt="@item.Uye.KullaniciAdi" /></span>
+                <a href="/Uye/Index/@item.Uye.UyeId">@item.Uye.KullaniciAdi</a>
+
+                <span class="glyphicon glyphicon-time"></span>@string.Format("{0:MMM yyyy}", item.Tarih)
+                <span class="glyphicon glyphicon-tags"></span>@item.Etikets.Count()
             </p>
-            <p>
-                <span class="glyphicon glyphicon-time"></span> @item.Tarih
-            </p>
+
             <hr />
-            <img class="img-responsive" src="@item.Foto"  alt="@item.Baslik" />
+            <img class="img-responsive" src="@item.Foto" alt="@item.Uye.KullaniciAdi" />
             <hr />
             @if (item.Icerik.Length > 150)
             {
-                <p> @Html.Raw(item.Icerik.Substring(0,150))...</p>
+                <p> @Html.Raw(item.Icerik.Substring(0, 150))...</p>
             }
             else
             {
                 <p>@Html.Raw(item.Icerik)...</p>
             }
 
-            <a href="/Home/MakaleDetay/@item.MakaleId" class="btn btn-primary">Devamı Oku<span class="glyphicon glyphicon-chevron-right"></span></a>
+            <a href="/Home/MakaleDetay/@item.MakaleId" class="btn btn-primary">Devamı Oku<span class="glyphicon glyphicon-chevron-right"></span></a> <span class="btn btn-info"><b>Okundu(@item.Okunma.Value)</b></span>
             <hr />
         </article>
     }
