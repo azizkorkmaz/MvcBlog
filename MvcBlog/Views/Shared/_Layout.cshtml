@@ -20,7 +20,7 @@
 </head>
 <body>
     <!-- Navigation -->
-    <nav class="navbar navbar-inverse " role="navigation">
+    <nav class="navbar navbar-default " role="navigation">
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
@@ -33,6 +33,7 @@
                 <a class="navbar-brand" href="/Home/Index">MVC BLOG</a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
+
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li>
@@ -45,11 +46,11 @@
                         <a href="/Home/Iletisim/">İletişim</a>
                     </li>
                 </ul>
-                <ul class="nav navbar-nav navbar-right">
+                <ul class="nav navbar-nav navbar-right top-nav">
                     @if (Session["uyeid"] != null)
                     {
                         <li class="dropdown">
-                            <a href="/Uye/Index/" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i>@Session["kullaniciadi"].ToString() <b class="caret"></b></a>
+                            <a href="/Uye/Index/" class="dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-user"></i>@Session["kullaniciadi"].ToString() <b class="caret"></b></a>
                             <ul class="dropdown-menu">
 
 
@@ -74,9 +75,12 @@
                     }
                     else
                     {
-                        <li>
-                            <a href="/Uye/Login/">Giriş</a>
-                        </li>
+                                <li>
+                                    <a href="/Uye/Login/">Giriş</a>
+                                </li>
+                                <li>
+                                    <a href="/Uye/Create/">Uye Ol</a>
+                                </li>
                     }
 
                 </ul>
@@ -97,47 +101,44 @@
                 @RenderBody()
             </div>
 
-            <!-- Blog Sidebar Widgets Column -->
             <div class="col-md-4  ">
 
-                <!-- Blog Search Well -->
+                <!-- Blog Search -->
                 <div class="well ">
-                    @Html.Partial("BlogAraPartial")
-                    </div>
-                    <!-- /.input-group -->
-                
-                <!-- Blog Categories Well -->
+                    @{
+                        Html.Partial("BlogAraPartial");
+                    }
+                </div>
+                <!-- Makale kategori -->
                 <div class="well">
-
                     @{
                         Html.RenderAction("KategoriPartial", "Home");
                     }
-
                 </div>
-                <!-- /.row -->
+                <!-- En çok okunan makaleler -->
                 <div class="well ">
-                    <h4>Side Widget Well</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore, perspiciatis adipisci accusamus laudantium odit aliquam repellat tempore quos aspernatur vero.</p>
+                    @{
+                        Html.RenderAction("PopulerMakaleler","Home");
+                    }
+                </div>
+                <!-- Son beş yorum-->
+                <div class="well ">
+                    @{
+                        Html.RenderAction("SonYorumlar", "Home");
+                    }
                 </div>
             </div>
-            <!-- Side Widget Well -->
-           
         </div>
     </div>
-    <!-- /.row -->
     <hr>
     <!-- Footer -->
-
     <footer>
         <div class="row">
             <div class="col-lg-12">
                 <p>Copyright &copy; @DateTime.Now.Year</p>
             </div>
-            <!-- /.col-lg-12 -->
         </div>
-        <!-- /.row -->
     </footer>
-
     <!-- /.container -->
     <!-- jQuery -->
     <script src="~/Content/js/jquery.js"></script>

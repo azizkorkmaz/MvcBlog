@@ -16,13 +16,25 @@ namespace MvcBlog.Controllers
         public ActionResult Index(int Page=1)
         {
             var makale = db.Makales.OrderByDescending(m => m.MakaleId).ToPagedList(Page, 5);
-
+            
             return View(makale);
         }
         public ActionResult BlogAra(string Ara=null)
         {
             var aranan = db.Makales.Where(m=>m.Baslik.Contains(Ara)).ToList();
             return View(aranan.OrderByDescending(m=>m.Tarih));
+        }
+
+        public ActionResult SonYorumlar()
+        {
+            var yorum = db.Yorums.OrderByDescending(y => y.YorumId).Take(5);
+            return View(yorum);
+        }
+
+        public ActionResult PopulerMakaleler( )
+        {
+            var makale = db.Makales.OrderByDescending(m => m.Okunma).Take(5);
+            return View(makale);
         }
 
         public ActionResult KategoriMakale(int id)

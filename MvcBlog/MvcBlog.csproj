@@ -250,8 +250,11 @@
     <Content Include="Views\Shared\_GridPager.cshtml" />
     <Content Include="Views\Shared\_Grid.cshtml" />
     <Content Include="Views\Home\KategoriMakale.cshtml" />
-    <Content Include="Views\Home\BlogAraPartial.cshtml" />
+    <Content Include="Views\Shared\BlogAraPartial.cshtml" />
     <Content Include="Views\Home\BlogAra.cshtml" />
+    <Content Include="Views\Home\SonYorumlar.cshtml" />
+    <Content Include="Views\Home\PopulerMakaleler.cshtml" />
+    <Content Include="Views\Uye\UyeProfil.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
