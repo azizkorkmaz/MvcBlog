@@ -19,7 +19,9 @@
         <img class="img-circle" width="90" src="@Model.Uye.Foto" alt="@Model.Uye.KullaniciAdi" />
         <a href="/Uye/Index/@Model.UyeID">@Model.Uye.KullaniciAdi</a>
     </p>
-    <p><span class="glyphicon glyphicon-time"></span>@string.Format("{0:MMM yyyy}", Model.Tarih) <span class="glyphicon glyphicon-edit"></span> @Model.Kategori.KategoriAdi (@Model.Kategori.Makales.Count)<span class="glyphicon glyphicon-comment"></span> (@Model.Yorums.Count) <span class="glyphicon glyphicon-bookmark"></span> (@Model.Okunma.Value) Defa Okundu</p>
+    <p class="lead">
+        @*<span class="glyphicon glyphicon-time"></span>@string.Format("{0:MMM yyyy}", Model.Tarih) <span class="glyphicon glyphicon-edit"></span> @Model.Kategori.KategoriAdi (@Model.Kategori.Makales.Count)<span class="glyphicon glyphicon-comment"></span> (@Model.Yorums.Count) <span class="glyphicon glyphicon-bookmark"></span> (@Model.Okunma.Value) Defa Okundu*@
+    </p>
     <hr>
     <img class="img-responsive" src="@Model.Foto" alt="@Model.Baslik">
     <hr>

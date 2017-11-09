@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using PagedList.Mvc;
+using PagedList;
 
 namespace MvcBlog.Controllers
 {
@@ -11,11 +13,22 @@ namespace MvcBlog.Controllers
     {
         // GET: Home
         MvcBlogDB db = new MvcBlogDB();
-        public ActionResult Index()
+        public ActionResult Index(int Page=1)
         {
-            var makale = db.Makales.OrderByDescending(m => m.MakaleId).ToList();
+            var makale = db.Makales.OrderByDescending(m => m.MakaleId).ToPagedList(Page, 5);
 
             return View(makale);
+        }
+        public ActionResult BlogAra(string Ara=null)
+        {
+            var aranan = db.Makales.Where(m=>m.Baslik.Contains(Ara)).ToList();
+            return View(aranan.OrderByDescending(m=>m.Tarih));
+        }
+
+        public ActionResult KategoriMakale(int id)
+        {
+            var makaleler = db.Makales.Where(k => k.Kategori.KategoriId == id).ToList();
+            return View(makaleler);
         }
 
         public ActionResult MakaleDetay(int id)

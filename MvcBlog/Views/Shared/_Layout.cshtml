@@ -102,17 +102,10 @@
 
                 <!-- Blog Search Well -->
                 <div class="well ">
-                    <h4>Blog Search</h4>
-                    <div class="input-group">
-                        <input type="text" class="form-control">
-                        <span class="input-group-btn">
-                            <button class="btn btn-default" type="button">
-                                <span class="glyphicon glyphicon-search"></span>
-                            </button>
-                        </span>
+                    @Html.Partial("BlogAraPartial")
                     </div>
                     <!-- /.input-group -->
-                </div>
+                
                 <!-- Blog Categories Well -->
                 <div class="well">
 
@@ -150,5 +143,7 @@
     <script src="~/Content/js/jquery.js"></script>
     <!-- Bootstrap Core JavaScript -->
     <script src="~/Content/js/bootstrap.min.js"></script>
+    <link href="@Url.Content("~/Content/Gridmvc.css")" rel="stylesheet" type="text/css" />
+    <script src="@Url.Content("~/Scripts/gridmvc.min.js")" type="text/javascript"> </script>
 </body>
 </html>
