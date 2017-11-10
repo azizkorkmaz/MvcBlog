@@ -71,16 +71,15 @@
 
                             </ul>
                         </li>
-
                     }
                     else
                     {
-                                <li>
-                                    <a href="/Uye/Login/">Giriş</a>
-                                </li>
-                                <li>
-                                    <a href="/Uye/Create/">Uye Ol</a>
-                                </li>
+                        <li>
+                            <a href="/Uye/Login/">Giriş</a>
+                        </li>
+                        <li>
+                            <a href="/Uye/Create/">Uye Ol</a>
+                        </li>
                     }
 
                 </ul>
@@ -97,12 +96,10 @@
             <div class="col-md-8">
                 @*Content*@
 
-
                 @RenderBody()
             </div>
 
             <div class="col-md-4  ">
-
                 <!-- Blog Search -->
                 <div class="well ">
                     @{
@@ -118,7 +115,7 @@
                 <!-- En çok okunan makaleler -->
                 <div class="well ">
                     @{
-                        Html.RenderAction("PopulerMakaleler","Home");
+                        Html.RenderAction("PopulerMakaleler", "Home");
                     }
                 </div>
                 <!-- Son beş yorum-->

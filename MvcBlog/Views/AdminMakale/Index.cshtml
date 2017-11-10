@@ -50,7 +50,19 @@
         </td>
 
         <td>
-            @Html.DisplayFor(modelItem => item.Icerik)
+            @if (item.Icerik.Length > 150)
+            {
+                <p> @Html.Raw(item.Icerik.Substring(0, 150))...</p>
+            }
+            else
+            {
+                <p>@Html.Raw(item.Icerik)...</p>
+            }
+
+            <a href="/AdminMakale/Details/@item.MakaleId" class="btn btn-primary" id="oku">
+                İçeriği İncele
+                <span class="glyphicon glyphicon-chevron-right"></span>
+            </a>
         </td>
         <td>
             <img width="50" src="@item.Foto" />
