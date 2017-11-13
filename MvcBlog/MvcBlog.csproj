@@ -455,6 +455,8 @@
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\AdminKategoriController.cs" />
     <Compile Include="Controllers\AdminMakaleController.cs" />
+    <Compile Include="Controllers\AdminUyeController.cs" />
+    <Compile Include="Controllers\AdminYorumController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\UyeController.cs" />
     <Compile Include="Global.asax.cs">
@@ -510,6 +512,15 @@
     <Content Include="Views\Uye\UyeProfil.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\tinymce_full_compressed.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\tinymce_full.cshtml" />
+    <Content Include="Views\AdminYorum\Delete.cshtml" />
+    <Content Include="Views\AdminYorum\Details.cshtml" />
+    <Content Include="Views\AdminYorum\Edit.cshtml" />
+    <Content Include="Views\AdminYorum\Index.cshtml" />
+    <Content Include="Views\AdminUye\Create.cshtml" />
+    <Content Include="Views\AdminUye\Delete.cshtml" />
+    <Content Include="Views\AdminUye\Details.cshtml" />
+    <Content Include="Views\AdminUye\Edit.cshtml" />
+    <Content Include="Views\AdminUye\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

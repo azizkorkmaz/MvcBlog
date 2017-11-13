@@ -7,6 +7,9 @@ using System.Net;
 using System.Web;
 using System.Web.Helpers;
 using System.Web.Mvc;
+using PagedList.Mvc;
+using PagedList;
+
 
 namespace MvcBlog.Controllers
 {
@@ -14,9 +17,9 @@ namespace MvcBlog.Controllers
     {
         // GET: AdminMakale
         MvcBlogDB db = new MvcBlogDB();
-        public ActionResult Index()
+        public ActionResult Index( int Page=1)
         {
-            var makaleler = db.Makales.ToList();
+            var makaleler = db.Makales.OrderByDescending(m=>m.MakaleId).ToPagedList(Page, 10);
             return View(makaleler);
         }
 
@@ -74,6 +77,7 @@ namespace MvcBlog.Controllers
 
                 }
                 makale.UyeID = Convert.ToInt32(Session["uyeid"]);
+                makale.Okunma = 1;
                 db.Makales.Add(makale);
                 db.SaveChanges();
                 return RedirectToAction("Index");

@@ -27,7 +27,7 @@ namespace MvcBlog.Models
         public string Email { get; set; }
 
         [Required]
-        [StringLength(20)]
+        [StringLength(100)]
         public string Sifre { get; set; }
 
         [StringLength(50)]
