@@ -80,7 +80,7 @@
                             <a href="/Uye/Login/">Giriş</a>
                         </li>
                         <li>
-                            <a href="/Uye/Create/">Kayıt Ol</a>
+                            <a href="/Uye/Create/">Üye Ol</a>
                         </li>
                     }
 
@@ -92,10 +92,10 @@
         <!-- /.container -->
     </nav>
     <!-- Page Content -->
-    <div class="container" style="background-color:darkgrey ">
-        <div class="row"  >
+    <div class="container " style="background-color:darkgrey">
+        <div class="row "  >
             <!-- Blog Entries Column -->
-            <div class="col-md-8">
+            <div class="col-md-8" >
                 @*Content*@
 
                 @RenderBody()
@@ -105,7 +105,7 @@
                 <!-- Blog Search -->
                 <div class="well">
                     @{
-                        Html.Partial("BlogAraPartial");
+                        Html.RenderPartial("BlogAraPartial","Home");
                     }
                 </div>
                 <!-- Makale kategori -->

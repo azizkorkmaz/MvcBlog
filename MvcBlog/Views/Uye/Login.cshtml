@@ -10,7 +10,7 @@
 @using (Html.BeginForm()) 
 {
     @Html.AntiForgeryToken()
-    <div class="form-horizontal col-md-11" style="background-color:azure">
+    <div class="form-horizontal col-md-12" style="background-color:azure">
        <span class="alert-danger h3">@ViewBag.uyari</span> 
         <br />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
@@ -41,10 +41,16 @@
         <div class="form-group" style="align-items:stretch">
             <div class="col-md-3 col-xs-pull-1"></div>
             <div class="col-md-9  col-xs-pull-1" style="align-items:center">
-                <input type="submit" value="Giriş" class="btn btn-success col-md-12" />
+                <input type="submit" value="Giriş" class="btn btn-success col-md-6" />
+                <a href="/Home/Index/" class="btn btn-danger col-md-6" role="button">Vazgeç</a>
             </div>
         </div>
-        <br />
+        <div class="form-group row col-md-12" style="align-items:stretch">
+            <div class="col-md-6 col-md-push-8">
+                <a href="#">Şifremi Unuttum</a>
+            </div><hr />
+        </div>
+        
     </div>
 }
 
