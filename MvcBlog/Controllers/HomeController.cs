@@ -60,7 +60,7 @@ namespace MvcBlog.Controllers
         {
             return View();
         }
-        public ActionResult Diger()
+        public ActionResult Projeler()
         {
             return View();
         }

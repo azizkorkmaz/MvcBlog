@@ -8,16 +8,16 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div class="col-md-12" style="padding-top:-5px">
+<div class="row">
     @foreach (var item in Model)
     {
         <div class="col-md-12" style="padding-top:15px">
-            <article class="col-md-12" style="background-color:gainsboro">
+            <article style="background-color:gainsboro; padding-left:15px;padding-bottom:10px; padding-top:1px; padding-right:5px; border-radius:5px">
                 <h2>
                     <a href="/Home/MakaleDetay/@item.MakaleId">@item.Baslik</a>
                 </h2>
-                <p class="lead">
-                    <span> <img class="img-circle img-responsive" src="@item.Uye.Foto" alt="@item.Uye.KullaniciAdi" /></span>
+                <p class="lead" style="font-size:16px">
+                    <span> <img class="img-circle img-responsive" width="90" src="@item.Uye.Foto" alt="@item.Uye.KullaniciAdi" /></span>
                     <a href="/Uye/UyeProfil/@item.Uye.UyeId">@item.Uye.KullaniciAdi</a>
 
                     <span class="glyphicon glyphicon-time"></span> @string.Format("{0:MMM yyyy}", item.Tarih)
@@ -40,7 +40,6 @@
                     Devamını Oku
                     <span class="glyphicon glyphicon-chevron-right"></span>
                 </a>
-                <hr />
             </article>
         </div>
     }

@@ -451,6 +451,9 @@
     <Content Include="scripts\tinymce\utils\form_utils.js" />
     <Content Include="scripts\tinymce\utils\mctabs.js" />
     <Content Include="scripts\tinymce\utils\validate.js" />
+    <Content Include="Uploads\Hakkımda\GitHub.png" />
+    <Content Include="Uploads\Hakkımda\LinkedIn.png" />
+    <Content Include="Uploads\Hakkımda\profil.jpg" />
     <Content Include="Uploads\Icon\icon.png" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -525,7 +528,7 @@
     <Content Include="Views\AdminUye\Details.cshtml" />
     <Content Include="Views\AdminUye\Edit.cshtml" />
     <Content Include="Views\AdminUye\Index.cshtml" />
-    <Content Include="Views\Home\Diger.cshtml" />
+    <Content Include="Views\Home\Projeler.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
