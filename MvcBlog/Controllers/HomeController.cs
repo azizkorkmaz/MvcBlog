@@ -60,6 +60,10 @@ namespace MvcBlog.Controllers
         {
             return View();
         }
+        public ActionResult Diger()
+        {
+            return View();
+        }
         public ActionResult KategoriPartial()
         {
 

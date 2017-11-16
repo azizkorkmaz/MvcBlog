@@ -451,6 +451,7 @@
     <Content Include="scripts\tinymce\utils\form_utils.js" />
     <Content Include="scripts\tinymce\utils\mctabs.js" />
     <Content Include="scripts\tinymce\utils\validate.js" />
+    <Content Include="Uploads\Icon\icon.png" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -508,7 +509,7 @@
     <Content Include="Views\Shared\_GridPager.cshtml" />
     <Content Include="Views\Shared\_Grid.cshtml" />
     <Content Include="Views\Home\KategoriMakale.cshtml" />
-    <Content Include="Views\Home\BlogAraPartial.cshtml" />
+    <Content Include="Views\Shared\BlogAraPartial.cshtml" />
     <Content Include="Views\Home\BlogAra.cshtml" />
     <Content Include="Views\Home\SonYorumlar.cshtml" />
     <Content Include="Views\Home\PopulerMakaleler.cshtml" />
@@ -524,6 +525,7 @@
     <Content Include="Views\AdminUye\Details.cshtml" />
     <Content Include="Views\AdminUye\Edit.cshtml" />
     <Content Include="Views\AdminUye\Index.cshtml" />
+    <Content Include="Views\Home\Diger.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

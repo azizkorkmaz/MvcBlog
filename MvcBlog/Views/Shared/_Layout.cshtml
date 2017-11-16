@@ -8,6 +8,7 @@
     <meta name="author" content="">
     <title>AZİZ BLOG</title>
     <!-- Bootstrap Core CSS -->
+    <link href="~/Uploads/Icon/icon.png" rel="shortcut icon"/>
     <link href="~/Content/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom CSS -->
     <link href="~/Content/css/blog-home.css" rel="stylesheet">
@@ -39,13 +40,13 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li>
-                        <a href="/Home/Hakkimizda">Hakkımızda</a>
+                        <a href="/Home/Hakkimizda">HAKKIMDA</a>
                     </li>
                     <li>
-                        <a href="#">Servisler</a>
+                        <a href="/Home/Iletisim/">İLETİŞİM</a>
                     </li>
                     <li>
-                        <a href="/Home/Iletisim/">İletişim</a>
+                        <a href="/Home/Diger/">DİĞER</a>
                     </li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right top-nav">
@@ -105,7 +106,7 @@
                 <!-- Blog Search -->
                 <div class="well">
                     @{
-                        Html.RenderPartial("BlogAraPartial","Home");
+                        Html.RenderPartial("BlogAraPartial");
                     }
                 </div>
                 <!-- Makale kategori -->
