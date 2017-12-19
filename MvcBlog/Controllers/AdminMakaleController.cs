@@ -148,7 +148,8 @@ namespace MvcBlog.Controllers
         }
 
         // POST: AdminMakale/Delete/5
-        [HttpPost]
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
         public ActionResult Delete(int id, FormCollection collection)
         {
             try

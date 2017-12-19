@@ -5,11 +5,11 @@
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
 
-<h2>Sil</h2>
+<h2>Makale Sil</h2>
 
 <h3>Silmek istediğinizden emin misiniz?</h3>
 <div>
-    <h4>Makale </h4>
+    
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -49,7 +49,7 @@
         </dt>
 
         <dd>
-            <img src="@Model.Foto" width="150" alt="Alternate Text" />
+            @Html.DisplayFor(model => model.Foto)
         </dd>
 
         <dt>
