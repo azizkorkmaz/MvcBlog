@@ -51,11 +51,11 @@
         </dd>
 
         <dt>
-            <img src="@Model.Foto" width="100" class="img-circle" alt="" />
+            @Html.DisplayNameFor(model => model.Foto)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Foto)
+            <img src="@Model.Foto" width="100" class="img-circle" alt="" />
         </dd>
 
     </dl>

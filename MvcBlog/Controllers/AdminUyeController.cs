@@ -7,6 +7,8 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using MvcBlog.Models;
+using System.Web.Helpers;
+using System.IO;
 
 namespace MvcBlog.Controllers
 {
@@ -48,10 +50,20 @@ namespace MvcBlog.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "UyeId,KullaniciAdi,Email,Sifre,AdSoyad,YetkiID")] Uye uye)
+        public ActionResult Create(Uye uye, HttpPostedFileBase Foto )
         {
             if (ModelState.IsValid)
             {
+                if (Foto != null)
+                {
+                    WebImage img = new WebImage(Foto.InputStream);
+                    FileInfo fotobilgi = new FileInfo(Foto.FileName);
+                    string yenifoto = Guid.NewGuid().ToString() + fotobilgi.Extension;
+                    img.Resize(800, 350);
+                    img.Save("~/Uploads/UyeFoto/" + yenifoto);
+                    uye.Foto = "/Uploads/UyeFoto/" + yenifoto;
+
+                }
                 db.Uyes.Add(uye);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -62,17 +74,15 @@ namespace MvcBlog.Controllers
         }
 
         // GET: AdminUye/Edit/5
-        public ActionResult Edit(int? id)
+        public ActionResult Edit(int id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Uye uye = db.Uyes.Find(id);
-            if (uye == null)
+            var uye = db.Uyes.Where(u => u.UyeId == id).FirstOrDefault();
+            if (uye== null)
             {
                 return HttpNotFound();
             }
+          
+            
             ViewBag.YetkiID = new SelectList(db.Yetkis, "YetkiId", "YetkiAdi", uye.YetkiID);
             return View(uye);
         }
@@ -82,17 +92,40 @@ namespace MvcBlog.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "UyeId,KullaniciAdi,Email,Sifre,AdSoyad,YetkiID")] Uye uye)
+        public ActionResult Edit(int id, HttpPostedFileBase Foto, Uye uye)
         {
-            if (ModelState.IsValid)
+            try
             {
+                var uyeDuzelt = db.Uyes.Where(m => m.UyeId == id).SingleOrDefault();
+                if (Foto != null)
+                {
+                    if (System.IO.File.Exists(Server.MapPath(uye.Foto)))
+                    {
+                        System.IO.File.Delete(Server.MapPath(uye.Foto));
+                    }
 
-                db.Entry(uye).State = EntityState.Modified;
-                db.SaveChanges();
+                    WebImage img = new WebImage(Foto.InputStream);
+                    FileInfo fotobilgi = new FileInfo(Foto.FileName);
+
+                    string yenifoto = Guid.NewGuid().ToString() + fotobilgi.Extension;
+                    img.Resize(800, 350);
+                    img.Save("~/Uploads/UyeFoto/" + yenifoto);
+                    uyeDuzelt.Foto = "/Uploads/UyeFoto/" + yenifoto;
+                    uyeDuzelt.KullaniciAdi = uye.KullaniciAdi;
+                    uyeDuzelt.Email = uye.Email;
+                    uyeDuzelt.Sifre = uye.Sifre;
+                    uyeDuzelt.AdSoyad = uye.AdSoyad;
+                    db.SaveChanges();
+
+                }
                 return RedirectToAction("Index");
+
             }
-            ViewBag.YetkiID = new SelectList(db.Yetkis, "YetkiId", "YetkiAdi", uye.YetkiID);
-            return View(uye);
+            catch (Exception)
+            {
+                ViewBag.UyeId = new SelectList(db.Uyes, "UyeId", "KullaniciAdi", uye.UyeId);
+                return View(uye);
+            }
         }
 
         // GET: AdminUye/Delete/5
@@ -115,6 +148,15 @@ namespace MvcBlog.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
+            var uyes = db.Uyes.Where(u => u.UyeId == id).FirstOrDefault();
+            foreach (var i in uyes.Yorums.ToList())
+            {
+                db.Yorums.Remove(i);
+            }
+            foreach (var i in uyes.Makales.ToList())
+            {
+                db.Makales.Remove(i);
+            }
             Uye uye = db.Uyes.Find(id);
             db.Uyes.Remove(uye);
             db.SaveChanges();

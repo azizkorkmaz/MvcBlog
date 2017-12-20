@@ -139,26 +139,25 @@ namespace MvcBlog.Controllers
         // GET: AdminMakale/Delete/5
         public ActionResult Delete(int id)
         {
-            var makale = db.Makales.Where(m => m.KategoriID == id).SingleOrDefault();
-            //if (makale == null)
-            //{
-            //    return HttpNotFound();
-            //}
+            var makale = db.Makales.Where(m => m.MakaleId == id).SingleOrDefault();
+            if (makale == null)
+            {
+                return HttpNotFound();
+            }
             return View(makale);
         }
 
         // POST: AdminMakale/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
+        [HttpPost]
         public ActionResult Delete(int id, FormCollection collection)
         {
             try
             {
-                var makale = db.Makales.Where(m => m.KategoriID == id).SingleOrDefault();
-                //if (makale == null)
-                //{
-                //    return HttpNotFound();
-                //}
+                var makale = db.Makales.Where(m => m.MakaleId == id).SingleOrDefault();
+                if (makale == null)
+                {
+                    return HttpNotFound();
+                }
                 if (System.IO.File.Exists(Server.MapPath(makale.Foto)))
                 {
                     System.IO.File.Delete(Server.MapPath(makale.Foto));

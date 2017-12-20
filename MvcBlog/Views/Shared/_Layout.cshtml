@@ -8,7 +8,7 @@
     <meta name="author" content="">
     <title>AZİZ BLOG</title>
     <!-- Bootstrap Core CSS -->
-    <link href="~/Uploads/Icon/icon.png" rel="shortcut icon"/>
+    <link href="~/Uploads/Icon/icon.png" rel="shortcut icon" />
     <link href="~/Content/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom CSS -->
     <link href="~/Content/css/blog-home.css" rel="stylesheet">
@@ -21,9 +21,9 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 </head>
-<body style="background-color:cadetblue" >
+<body style="background-color:cadetblue">
     <!-- Navigation -->
-    <nav class="navbar navbar-default " role="navigation" >
+    <nav class="navbar navbar-default " role="navigation">
         <div class="container" style="">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
@@ -55,8 +55,6 @@
                         <li class="dropdown">
                             <a href="/Uye/Index/" class="dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-user"></i>@Session["kullaniciadi"].ToString() <b class="caret"></b></a>
                             <ul class="dropdown-menu">
-
-
                                 <li>
                                     <a href="/Uye/Index/@Session["uyeid"]">Profil</a>
                                 </li>
@@ -84,9 +82,7 @@
                             <a href="/Uye/Create/"><b>Üye Ol</b></a>
                         </li>
                     }
-
                 </ul>
-
             </div>
             <!-- /.navbar-collapse -->
         </div>
@@ -94,7 +90,7 @@
     </nav>
     <!-- Page Content -->
     <div class="container " style="background-color:darkgrey">
-        <div class="row ">
+        <div class="row " style="border-radius:5px">
             <!-- Blog Entries Column -->
             <div class="col-md-8">
                 @*Content*@
@@ -134,8 +130,10 @@
     <!-- Footer -->
     <footer>
         <div class="row">
-            <div class="col-lg-12">
-                <p>Copyright &copy; @DateTime.Now.Year</p>
+            <div class="col-md-12">
+                <div class="copyright text-center">
+                    <p>&copy;  Copyright 2017, Abdulaziz Korkmaz</p>
+                </div>
             </div>
         </div>
     </footer>
