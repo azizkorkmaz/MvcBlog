@@ -12,34 +12,50 @@
     @foreach (var item in Model)
     {
         <div class="col-md-12" style="padding-top:15px">
-            <article style="background-color:gainsboro; padding-left:15px;padding-bottom:10px; padding-top:1px; padding-right:5px; border-radius:5px">
-                <h2>
-                    <a href="/Home/MakaleDetay/@item.MakaleId">@item.Baslik</a>
-                </h2>
-                <p class="lead" style="font-size:16px">
-                    <span> <img class="img-circle img-responsive" width="90" src="@item.Uye.Foto" alt="@item.Uye.KullaniciAdi" /></span>
-                    <a href="/Uye/UyeProfil/@item.Uye.UyeId">@item.Uye.KullaniciAdi</a>
+            <article style="background-color:white; padding-left:15px;padding-bottom:10px; padding-top:1px; padding-right:5px; border-radius:5px">
 
-                    <span class="glyphicon glyphicon-time"></span> @string.Format("{0:MMM yyyy}", item.Tarih)
-                    <span class="glyphicon glyphicon-tags"></span> @item.Etikets.Count()
-                </p>
+                <div class="col-md-12">
+                    <img class="img-responsive" style="width:98%;height:auto;padding:5px" src="@item.Foto" alt="@item.Uye.KullaniciAdi" />
+                </div>
 
-                <hr />
-                <img class="img-responsive" src="@item.Foto" alt="@item.Uye.KullaniciAdi" />
-                <hr />
-                @if (item.Icerik.Length > 250)
-                {
-                    <p> @Html.Raw(item.Icerik.Substring(0, 250))...</p>
-                }
-                else
-                {
-                    <p>@Html.Raw(item.Icerik)...</p>
-                }
+                <div style="background-color:white">
+                    <h2 style="text-align:center">
+                        <a href="/Home/MakaleDetay/@item.MakaleId">@item.Baslik</a>
+                    </h2>
 
-                <a href="/Home/MakaleDetay/@item.MakaleId" class="btn btn-primary" id="oku">
-                    Devamını Oku
-                    <span class="glyphicon glyphicon-chevron-right"></span>
-                </a>
+                    <p class="lead" style="font-size:16px;text-align:center">
+                        <span class="glyphicon glyphicon-time"></span> @string.Format("{0:MMM yyyy}", item.Tarih)&nbsp;
+                        <span class="glyphicon glyphicon-folder-close"></span> @item.Kategori.KategoriAdi
+                        &nbsp;
+                        <span class="glyphicon glyphicon-comment"></span> @item.Yorums.Count()
+                        &nbsp;
+                        <span class="glyphicon glyphicon-tags"></span> @item.Etikets.Count()
+                    </p>
+
+                    @if (item.Icerik.Length > 500)
+                    {
+                        <p> @Html.Raw(item.Icerik.Substring(0, 500))...</p>
+                    }
+                    else
+                    {
+                        <p>@Html.Raw(item.Icerik)...</p>
+                    }
+
+                    <a href="/Home/MakaleDetay/@item.MakaleId" class="btn btn-primary" id="oku">
+                        Devamını Oku
+                        <span class="glyphicon glyphicon-chevron-right"></span>
+                    </a>
+                    <hr />
+                </div>
+                <footer class="entry-meta clearfix" style="background-color:lightgray;margin-left:-10px">
+                    <div class="up-row"></div>
+                    <p class="lead" style="font-size:16px;padding:15px">
+                        <span>
+                            <img class="img-circle img-responsive" width="90" src="@item.Uye.Foto" alt="@item.Uye.KullaniciAdi" />
+                        </span>
+                        <a href="https://azizkorkmaz.com" target="_blank">Abdulaziz KORKMAZ</a>
+                    </p>
+                </footer>
             </article>
         </div>
     }

@@ -453,9 +453,12 @@
     <Content Include="scripts\tinymce\utils\mctabs.js" />
     <Content Include="scripts\tinymce\utils\validate.js" />
     <Content Include="Uploads\Hakkımda\GitHub.png" />
+    <Content Include="Uploads\Hakkımda\icon.png" />
     <Content Include="Uploads\Hakkımda\LinkedIn.png" />
     <Content Include="Uploads\Hakkımda\profil.jpg" />
     <Content Include="Uploads\Icon\icon.png" />
+    <Content Include="Uploads\MakaleFoto\Blog Yapım Asamaları.jpg" />
+    <Content Include="Uploads\UyeFoto\Ekran Alıntısı2.JPG" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -541,8 +544,6 @@
     <Folder Include="App_Data\" />
     <Folder Include="Content\font-awesome\" />
     <Folder Include="Content\js\plugins\" />
-    <Folder Include="Uploads\MakaleFoto\" />
-    <Folder Include="Uploads\UyeFoto\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
