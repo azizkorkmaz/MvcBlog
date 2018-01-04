@@ -23,7 +23,8 @@
         <span class="glyphicon glyphicon-time"></span>@string.Format("{0:MMM yyyy}", Model.Tarih) <span class="glyphicon glyphicon-edit"></span> @Model.Kategori.KategoriAdi (@Model.Kategori.Makales.Count)<span class="glyphicon glyphicon-comment"></span> (@Model.Yorums.Count) 
     </p>
     <hr>
-    <img class="img-responsive" src="@Model.Foto" alt="@Model.Baslik">
+    <img class="img-responsive" src="~/Uploads/MakaleFoto/Blog Yapım Asamaları.jpg"
+     alt="@Model.Baslik">
     <hr>
     <p class="lead">
         @Html.Raw(Model.Icerik)
